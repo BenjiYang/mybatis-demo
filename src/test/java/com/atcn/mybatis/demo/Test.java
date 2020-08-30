@@ -1,0 +1,78 @@
+package com.atcn.mybatis.demo;
+
+import com.atcn.mybatis.demo.dao.User;
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+
+import java.io.IOException;
+import java.io.InputStream;
+
+public class Test {
+
+    private SqlSession session;
+
+    @BeforeTest
+    public void setUp() throws IOException {
+        // 1. Load mybatis-config.xml file
+        InputStream inputStream = Resources.getResourceAsStream("mybatis-config.xml");
+
+        // 2.Get SqlSessionFactory object
+        SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(inputStream);
+
+        // 3.Use SqlSessionFactory object to get SQLSession object
+        session = factory.openSession();
+    }
+
+    // 4. SQL operations - INSERT
+    @org.testng.annotations.Test
+    public void add() {
+        // INSERT EXAMPLE
+        User user = new User();
+        user.setId(5);
+        user.setName("Ellen");
+        user.setAge(23);
+
+        int insert = session.insert("myNamespace.addUser", user);
+        System.out.println("Impacted row numbers：" + insert);
+    }
+
+    // 4. SQL operations - DELETE
+    @org.testng.annotations.Test
+    public void delete() {
+        // DELETE EXAMPLE
+        int delete = session.delete("myNamespace.deleteUserById", 5);
+        System.out.println("Impacted row numbers：" + delete);
+    }
+
+    // 4. SQL operations - SELECT
+    @org.testng.annotations.Test
+    public void search() {
+        // SELECT EXAMPLE
+        User search = (User) session.selectOne("myNamespace.getUserById", 2);
+        System.out.println("Selected User is：" + search.toString());
+    }
+
+    // 4. SQL operations - UPDATE
+    @org.testng.annotations.Test
+    public void update() {
+        // UPDATE EXAMPLE
+        User user = new User();
+        user.setId(2);
+        user.setName("Bengi");
+
+        int modify = session.update("myNamespace.updateUserById", user);
+        System.out.println("Impacted row numbers：" + modify);
+    }
+
+    @AfterTest
+    public void tearDown() {
+        // 5. Commit changes and close the connection
+        session.commit();
+        session.close();
+    }
+
+}
