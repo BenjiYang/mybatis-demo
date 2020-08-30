@@ -1,7 +1,7 @@
 package com.atcn.mybatis.demo;
 
 import com.atcn.mybatis.demo.dao.UserMapper;
-import com.atcn.mybatis.demo.utils.DBUtils;
+import com.atcn.mybatis.demo.common.DBUtils;
 import org.testng.annotations.Test;
 
 import java.lang.reflect.InvocationHandler;

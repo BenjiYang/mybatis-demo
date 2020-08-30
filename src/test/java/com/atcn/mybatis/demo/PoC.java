@@ -1,6 +1,6 @@
 package com.atcn.mybatis.demo;
 
-import com.atcn.mybatis.demo.dao.User;
+import com.atcn.mybatis.demo.bean.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;

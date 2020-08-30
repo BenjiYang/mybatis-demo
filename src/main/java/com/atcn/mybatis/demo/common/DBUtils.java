@@ -1,4 +1,4 @@
-package com.atcn.mybatis.demo.utils;
+package com.atcn.mybatis.demo.common;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;

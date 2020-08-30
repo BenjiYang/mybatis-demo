@@ -1,5 +1,7 @@
 package com.atcn.mybatis.demo.dao;
 
+import com.atcn.mybatis.demo.bean.User;
+
 public interface UserMapper {
 
     public int addUser(User user);

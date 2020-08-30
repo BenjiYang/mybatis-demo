@@ -3,16 +3,16 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.atcn.mybatis.demo.dao">
-    <insert id="addUser" parameterType="com.atcn.mybatis.demo.dao.User">
+    <insert id="addUser" parameterType="com.atcn.mybatis.demo.bean.User">
 		INSERT INTO T_USER(id, name, age) VALUES (#{id}, #{name}, #{age});
 	</insert>
     <delete id="deleteUserById" parameterType="java.lang.Integer">
 		DELETE FROM T_USER WHERE id = #{id};
 	</delete>
-    <update id="updateUserById" parameterType="com.atcn.mybatis.demo.dao.User">
+    <update id="updateUserById" parameterType="com.atcn.mybatis.demo.bean.User">
 		UPDATE T_USER SET name = #{name} WHERE id=#{id};
 	</update>
-    <select id="getUserById" parameterType="java.lang.Integer" resultType="com.atcn.mybatis.demo.dao.User">
+    <select id="getUserById" parameterType="java.lang.Integer" resultType="com.atcn.mybatis.demo.bean.User">
 		SELECT * FROM T_USER WHERE id=#{id};
 	</select>
 </mapper>

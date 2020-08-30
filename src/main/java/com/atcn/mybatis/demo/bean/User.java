@@ -1,4 +1,4 @@
-package com.atcn.mybatis.demo.dao;
+package com.atcn.mybatis.demo.bean;
 
 public class User {
     private int id;

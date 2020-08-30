@@ -1,6 +1,8 @@
-package com.atcn.mybatis.demo.dao;
+package com.atcn.mybatis.demo.dao.impl;
 
-import com.atcn.mybatis.demo.utils.DBUtils;
+import com.atcn.mybatis.demo.bean.User;
+import com.atcn.mybatis.demo.dao.UserMapper;
+import com.atcn.mybatis.demo.common.DBUtils;
 
 public class UserDao implements UserMapper {
 
