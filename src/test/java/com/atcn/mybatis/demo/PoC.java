@@ -5,13 +5,12 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.*;
 
 import java.io.IOException;
 import java.io.InputStream;
 
-public class Test {
+public class PoC {
 
     private SqlSession session;
 
@@ -28,7 +27,7 @@ public class Test {
     }
 
     // 4. SQL operations - INSERT
-    @org.testng.annotations.Test
+    @Test
     public void add() {
         // INSERT EXAMPLE
         User user = new User();
@@ -41,7 +40,7 @@ public class Test {
     }
 
     // 4. SQL operations - DELETE
-    @org.testng.annotations.Test
+    @Test
     public void delete() {
         // DELETE EXAMPLE
         int delete = session.delete("myNamespace.deleteUserById", 5);
@@ -49,7 +48,7 @@ public class Test {
     }
 
     // 4. SQL operations - SELECT
-    @org.testng.annotations.Test
+    @Test
     public void search() {
         // SELECT EXAMPLE
         User search = (User) session.selectOne("myNamespace.getUserById", 2);
@@ -57,7 +56,7 @@ public class Test {
     }
 
     // 4. SQL operations - UPDATE
-    @org.testng.annotations.Test
+    @Test
     public void update() {
         // UPDATE EXAMPLE
         User user = new User();
