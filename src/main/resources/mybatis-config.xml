@@ -2,16 +2,36 @@
 <!DOCTYPE configuration
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!--
+MyBatis 的配置文件包含了会深深影响 MyBatis 行为的设置（settings）和属性（properties）信息。文档的顶层结构如下：
+configuration 配置
+    properties 属性
+    settings 设置
+    typeAliases 类型别名
+    typeHandlers 类型处理器
+    objectFactory 对象工厂
+    plugins 插件
+    environments 环境
+        environment 环境变量
+            transactionManager 事务管理器
+            dataSource 数据源
+    databaseIdProvider 数据库厂商标识
+    mappers 映射器
+-->
+
 <configuration>
+<!--    引入外部数据库连接信息属性文件， 外部属性文件的变量引用方式，如：${driver}-->
+    <properties resource="db.properties"></properties>
     <environments default="development">
 <!--        environment 元素体中包含了事务管理和连接池的配置-->
         <environment id="development">
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost:3306/mysqlapp"/>
-                <property name="username" value="root"/>
-                <property name="password" value="123456"/>
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
             </dataSource>
         </environment>
     </environments>
