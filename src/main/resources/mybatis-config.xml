@@ -19,5 +19,6 @@
     <mappers>
 <!--        mappers 元素则包含了一组映射器（mapper），这些映射器的 XML 映射文件包含了 SQL 代码和映射定义信息。-->
         <mapper resource="mappers/UserMapper.xml"/>
+        <mapper resource="mappers/UserMapperOptimized.xml"/>
     </mappers>
 </configuration>

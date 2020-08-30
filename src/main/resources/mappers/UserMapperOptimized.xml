@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.atcn.mybatis.demo.dao">
+<mapper namespace="com.atcn.mybatis.demo.dao.UserMapper">
     <insert id="addUser" parameterType="com.atcn.mybatis.demo.dao.User">
 		INSERT INTO T_USER(id, name, age) VALUES (#{id}, #{name}, #{age});
 	</insert>
@@ -12,7 +12,7 @@
     <update id="updateUserById" parameterType="com.atcn.mybatis.demo.dao.User">
 		UPDATE T_USER SET name = #{name} WHERE id=#{id};
 	</update>
-    <select id="getUserById" parameterType="java.lang.Integer" resultType="com.atcn.mybatis.demo.dao.User">
+    <select id="queryById" parameterType="java.lang.Integer" resultType="com.atcn.mybatis.demo.dao.User">
 		SELECT * FROM T_USER WHERE id=#{id};
 	</select>
 </mapper>

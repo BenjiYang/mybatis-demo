@@ -12,6 +12,10 @@ import java.io.InputStream;
 
 public class PoC {
 
+    /**
+     * PoC - Using UserMapper.xml configuration
+     */
+
     private SqlSession session;
 
     @BeforeTest
@@ -35,7 +39,7 @@ public class PoC {
         user.setName("Ellen");
         user.setAge(23);
 
-        int insert = session.insert("myNamespace.addUser", user);
+        int insert = session.insert("com.atcn.mybatis.demo.dao.addUser", user);
         System.out.println("Impacted row numbers：" + insert);
     }
 
@@ -43,7 +47,7 @@ public class PoC {
     @Test
     public void delete() {
         // DELETE EXAMPLE
-        int delete = session.delete("myNamespace.deleteUserById", 5);
+        int delete = session.delete("com.atcn.mybatis.demo.dao.deleteUserById", 5);
         System.out.println("Impacted row numbers：" + delete);
     }
 
@@ -51,7 +55,7 @@ public class PoC {
     @Test
     public void search() {
         // SELECT EXAMPLE
-        User search = (User) session.selectOne("myNamespace.getUserById", 2);
+        User search = (User) session.selectOne("com.atcn.mybatis.demo.dao.getUserById", 2);
         System.out.println("Selected User is：" + search.toString());
     }
 
@@ -63,7 +67,7 @@ public class PoC {
         user.setId(2);
         user.setName("Bengi");
 
-        int modify = session.update("myNamespace.updateUserById", user);
+        int modify = session.update("com.atcn.mybatis.demo.dao.updateUserById", user);
         System.out.println("Impacted row numbers：" + modify);
     }
 
