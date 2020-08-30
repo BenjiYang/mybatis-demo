@@ -96,9 +96,12 @@ bigdecimal	BigDecimal
 
 <!--    typeHandlers称做类型处理器。就是实现Java类型和数据库类型之间转换的。 除了系统提供的类型转换器之外，开发者也可以自定义类型转换，如下：
 例如List<—>VARCHAR之间的类型转换：
-
+1.自定义类型转换器
+2.修改配置文件
 -->
-
+    <typeHandlers>
+        <typeHandler handler="com.atcn.mybatis.demo.handler.ListStringTypeHandler" />
+    </typeHandlers>
 
 
 

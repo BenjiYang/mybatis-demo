@@ -1,14 +1,20 @@
 # Create mysql in docker
+
 > docker-compose src/main/java/com/atcn/mybatis/demo/dao/docker4mysql/mysql-docker-compose.yml
 
 # Connects to mysql
-> jdbc:mysql://localhost:3306/mysqlapp
-> root/123456
+
+``` proper
+jdbc:mysql://localhost:3306/mysqlapp
+root/123456
+```
 
 ## create table
-> create table T_USERS(id int not null, name text, age int, primary key(id));
- 
-## insert record
-> insert into T_USERS values (1, “Allen", “21");
-> insert into T_USERS values (2, “Ben", "22");
-> insert into T_USERS values (3, “Cathy", “23");
+
+``` sql
+create table T_USER(id int not null, name text, age int, hobby varchar(100), primary key(id));
+insert into T_USER(id, name, age, hobby) values (1, "Allen", "21", "basketball;football");
+insert into T_USER(id, name, age, hobby) values (2, "Ben", "22", "badminton;golf");
+insert into T_USER(id, name, age, hobby) values (3, "Cathy", "23", "swimming; bowling");                       
+```
+
