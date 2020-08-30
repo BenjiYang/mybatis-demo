@@ -25,6 +25,7 @@ configuration 配置
 <!--    引入外部数据库连接信息属性文件， 外部属性文件的变量引用方式，如：${driver}-->
     <properties resource="db.properties"></properties>
 
+
 <!--    这是 MyBatis 中极为重要的调整设置，它们会改变 MyBatis 的运行时行为。下表描述了设置中各项的意图、默认值等-->
     <settings>
 <!--        全局地开启或关闭配置文件中的所有映射器已经配置的任何缓存。-->
@@ -58,6 +59,7 @@ configuration 配置
 <!--        指定哪个对象的方法触发一次延迟加载。	用逗号分隔的方法列表。-->
         <setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString"/>
     </settings>
+
 
 <!--    类型别名是为 Java 类型设置一个短的名字。它只和 XML 配置有关，存在的意义仅在于用来减少类完全限定名的冗余
 mybatis中默认提供的别名
@@ -94,6 +96,7 @@ bigdecimal	BigDecimal
 <!--        <typeAlias type="com.atcn.mybatis.demo.bean.User" alias="user"/>-->
     </typeAliases>
 
+
 <!--    typeHandlers称做类型处理器。就是实现Java类型和数据库类型之间转换的。 除了系统提供的类型转换器之外，开发者也可以自定义类型转换，如下：
 例如List<—>VARCHAR之间的类型转换：
 1.自定义类型转换器
@@ -102,7 +105,6 @@ bigdecimal	BigDecimal
     <typeHandlers>
         <typeHandler handler="com.atcn.mybatis.demo.handler.ListStringTypeHandler" />
     </typeHandlers>
-
 
 
     <environments default="development">
@@ -117,10 +119,16 @@ bigdecimal	BigDecimal
             </dataSource>
         </environment>
     </environments>
-    <!-- 注册映射文件 -->
+
+
+    <!-- 映射器：我们添加的SQL语句的映射文件要被配置文件能够发现，在自动发现方面mybatis在这方面并没有实现，所以我们需要通过mapper标签来关联映射文件。 -->
     <mappers>
 <!--        mappers 元素则包含了一组映射器（mapper），这些映射器的 XML 映射文件包含了 SQL 代码和映射定义信息。-->
+<!--        方式一：一个个扫描。 这种配置方式，对mapper的文件名没有要求-->
         <mapper resource="mappers/UserMapper.xml"/>
         <mapper resource="mappers/UserMapperOptimized.xml"/>
+
+<!--        方式二:扫描包。 更简单更常用的方式，则是通过包扫描去加载mapper文件，这个时候对mapper文件名有要求，要求mapper文件名和mapper接口必须一致。-->
+<!--        <package name="mappers"/>-->
     </mappers>
 </configuration>
