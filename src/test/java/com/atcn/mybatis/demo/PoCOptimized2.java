@@ -11,6 +11,9 @@ import java.lang.reflect.Proxy;
 public class PoCOptimized2 {
 
     /**
+     *
+     * 如下方式使用JDK代理，在删除UserDao实现类的时候，仍然可以使用
+     *
      * PoCOptimized1 - Using UserMapperOptimized.xml configuration
      */
 

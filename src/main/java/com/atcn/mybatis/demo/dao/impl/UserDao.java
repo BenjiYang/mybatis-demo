@@ -7,7 +7,9 @@ import com.atcn.mybatis.demo.common.DBUtils;
 public class UserDao implements UserMapper {
 
     /**
-     * PoCOptimized1 - Using UserMapperOptimized.xml configuration
+     *  该类可以删除掉，原因是利用JDK动态代理形式，不再需要此类
+     *
+     *  PoCOptimized1 - Using UserMapperOptimized.xml configuration
      */
 
     // 3.Use SqlSessionFactory object to get SQLSession object - openSession()

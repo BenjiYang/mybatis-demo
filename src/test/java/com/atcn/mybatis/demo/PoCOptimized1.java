@@ -14,6 +14,9 @@ import java.io.InputStream;
 public class PoCOptimized1 {
 
     /**
+     *
+     * 如下方式使用JDK代理，在删除UserDao实现类的时候，仍然可以使用
+     *
      * 五、mybatis接口的使用方式
      * 通过前面UserDao的设计，可以发现，UserDao中的代码都是模板化代码，都可以通过配置自动生成，因此，在实际开发中，Mapper可以按照如下方式设计
      * 1.定义Mapper接口
