@@ -8,11 +8,13 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
-public class PoCOptimized2 {
+public class PoCOptimized {
 
     /**
      *
      * 如下方式使用JDK代理，在删除UserDao实现类的时候，仍然可以使用
+     *
+     * 使用UserMapper接口与xml中namespace映射，调用与之对应id方法
      *
      * PoCOptimized1 - Using UserMapperOptimized.xml configuration
      */
@@ -34,7 +36,7 @@ public class PoCOptimized2 {
                         return DBUtils.getInstance().openSession().selectOne(UserMapper.class.getName()+"."+method.getName(), id);
                     }
                 } );
-        System.out.println(mapper.queryById(1));
+        System.out.println(mapper.getUserById(1));
     }
 
 }

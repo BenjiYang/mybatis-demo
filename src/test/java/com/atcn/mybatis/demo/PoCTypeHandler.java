@@ -15,6 +15,17 @@ import java.util.List;
 
 public class PoCTypeHandler {
 
+    /**
+     * List<String> 与 JDBCType varchar的互转
+     *
+     * 详细看 ListStringTypeHandler.java 以及 mybatis-config.xml 文件中的配置
+     *
+     *     <typeHandlers>
+     *         <typeHandler handler="com.atcn.mybatis.demo.handler.ListStringTypeHandler" />
+     *     </typeHandlers>
+     *
+     */
+
     @Test
     public void add3() throws IOException {
         InputStream inputStream = Resources.getResourceAsStream("mybatis-config.xml");
@@ -25,7 +36,8 @@ public class PoCTypeHandler {
         user.setId(7);
         user.setName("Tom4TypeHandler");
         user.setAge(22);
-        // Type handler demo
+
+        // Type handler demo - List<String> 与 JDBCType varchar的互转
         List<String> list = new ArrayList<String>();
         list.add("dnf");
         list.add("cs");
@@ -45,7 +57,7 @@ public class PoCTypeHandler {
         SqlSession session = factory.openSession();
 
         UserMapper mapper = session.getMapper(UserMapper.class);
-        User user = mapper.queryById(7);
+        User user = mapper.getUserById(7);
         System.out.println(user);
         session.commit();
     }

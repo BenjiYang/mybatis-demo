@@ -8,7 +8,7 @@ public interface UserMapper {
 
     public int deleteById(int id);
 
-    public User queryById(int id);
+    public User getUserById(int id);
 
     public int updateById(User user);
 }

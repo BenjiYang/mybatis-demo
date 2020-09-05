@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class PoCOptimized1 {
+public class PoC_JDK_Proxy {
 
     /**
      *

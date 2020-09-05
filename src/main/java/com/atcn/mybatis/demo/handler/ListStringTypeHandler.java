@@ -18,12 +18,18 @@ public class ListStringTypeHandler extends BaseTypeHandler<List<String>> {
     /**
      *
      * typeHandlers 1.自定义类型转换器
-     * typeHandlers称做类型处理器。就是实现Java类型和数据库类型之间转换的。 除了系统提供的类型转换器之外，开发者也可以自定义类型转换，如下： 例如List<—>VARCHAR之间的类型转换：
+     * typeHandlers称做类型处理器。
+     * 就是实现Java类型和数据库类型之间转换的。
+     * 除了系统提供的类型转换器之外，开发者也可以自定义类型转换，
      *
+     * 如下： 例如List<—>VARCHAR之间的类型转换:
+     *
+     * @MappedJdbcTypes(JdbcType.VARCHAR)
+     * @MappedTypes(List.class)
      *
      * 设置非空参数
      * 执行SQL语句时对占位符进行设置
-     * 比如:sql = "insert into t_sysuser(name,age,favorites)values(?,?,?)"
+     * 比如:sql = "insert into T_USER(id, name,age,hobby)values(?,?,?,?)"
      */
     @Override
     public void setNonNullParameter(PreparedStatement ps, int i, List<String> parameter, JdbcType jdbcType)
